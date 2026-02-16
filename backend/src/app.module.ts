@@ -1,7 +1,20 @@
 import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
-  imports: [AuthModule]
+  imports: [
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      host: 'localhost',
+      port: 5432,
+      username: 'luismiguel',
+      password: '', // se tiveres password coloca aqui
+      database: 'missoes_comunitarias',
+      autoLoadEntities: true,
+      synchronize: true,
+    }),
+    AuthModule,
+  ],
 })
 export class AppModule {}
