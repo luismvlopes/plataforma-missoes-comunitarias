@@ -5,6 +5,8 @@ import { LoginDto } from './dto/login.dto';
 import { UseGuards, Get, Request } from '@nestjs/common';
 import { JwtAuthGuard } from './jwt-auth.guard';
 import { ApiTags, ApiBearerAuth } from '@nestjs/swagger';
+import { Roles } from '../../common/decorators/roles.decorator';
+import { Role } from '../users/user.entity';
 
 
 @ApiTags('Auth')
